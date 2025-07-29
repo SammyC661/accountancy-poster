@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SHAPE the FUTURE of ACCOUNTANCY & FINANCE</title>
+<style>
+  /* --- Light Mode Theme (default) --- */
+  :root {
+    --bg: #f4f7fb;
+    --poster-bg: #ffffff;
+    --header-bg-start: #a1ffce;
+    --header-bg-end: #faffd1;
+    --header-text: #004d60;
+    --subtitle-text: #0083b0;
+    --benefit-bg-start: #e0f7fa;
+    --benefit-bg-end: #b2ebf2;
+    --benefit-text: #004d60;
+    --section-title-color: #0083b0;
+    --funding-color: #00a5bf;
+    --industry-bg: #e0f2f1;
+    --industry-text: #006064;
+    --cta-bg-start: #00c9ff;
+    --cta-bg-end: #92fe9d;
+    --cta-text: #0c223a;
+    --confidentiality-bg: #f0f8ff;
+    --confidentiality-text: #444;
+    --share-bg-start: #faffd1;
+    --share-bg-end: #a1ffce;
+    --share-text: #003344;
+    --list-marker: #00a5bf;
+    --link-hover-bg-start: #00b4db;
+    --link-hover-bg-end: #8be6d3;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-strong: rgba(0, 0, 0, 0.1);
+  }
+
+  /* --- Dark Original Theme --- */
+  body.dark {
+    --bg: #121212;
+    --poster-bg: #1e1e1e;
+    --header-bg-start: #23074d;
+    --header-bg-end: #cc5333;
+    --header-text: #f5f5f5;
+    --subtitle-text: #ddd;
+    --benefit-bg-start: #2c2c2c;
+    --benefit-bg-end: #3d3d3d;
+    --benefit-text: #ccc;
+    --section-title-color: #e76f51;
+    --funding-color: #f4a261;
+    --industry-bg: #2e2e2e;
+    --industry-text: #c9ada7;
+    --cta-bg-start: #6a0572;
+    --cta-bg-end: #a90333;
+    --cta-text: #f5f5f5;
+    --confidentiality-bg: #262626;
+    --confidentiality-text: #bbb;
+    --share-bg-start: #332f2f;
+    --share-bg-end: #5d3a3a;
+    --share-text: #ccc;
+    --list-marker: #f4a261;
+    --link-hover-bg-start: #a90333;
+    --link-hover-bg-end: #6a0572;
+    --shadow-light: rgba(0, 0, 0, 0.7);
+    --shadow-strong: rgba(0, 0, 0, 0.85);
+  }
+
+  /* ===== ANIMATION KEYFRAMES ===== */
+  
+  /* Poster fade-in + scale */
+  @keyframes posterFadeIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Header & subtitle fade-slide-down */
+  @keyframes fadeSlideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Benefit items staggered fade-slide-right */
+  @keyframes fadeSlideRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Industries pop-in scale bounce staggered */
+  @keyframes popIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* CTA button pulse glow on hover/focus */
+  @keyframes pulseGlow {
+    from {
+      box-shadow: 0 10px 25px var(--shadow-strong);
+    }
+    to {
+      box-shadow: 0 15px 35px var(--shadow-strong);
+    }
+  }
+
+  /* Fade slide up for sections */
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* NEW ANIMATIONS */
+  
+  /* Shimmer effect for funding box */
+  @keyframes shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: 200px 0;
+    }
+  }
+
+  /* Single pulse for CTA buttons */
+  @keyframes pulseOnce {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 transparent;
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px var(--shadow-strong);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+
+  /* CTA section fade-slide-up */
+  @keyframes fadeSlideUpCta {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Bounce in effect */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Fade in */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ===== GENERAL STYLES ===== */
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--header-text);
+  }
+
+  .poster {
+    background: var(--poster-bg);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px var(--shadow-light);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: posterFadeIn 0.8s ease forwards;
+    position: relative;
+  }
+
+  .header {
+    background: linear-gradient(135deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+    color: var(--header-text);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    user-select: none;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  .header::before {
+    content: "💼";
+    font-size: 44px;
+    position: absolute;
+    top: 18px;
+    left: 30px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    line-height: 1.1;
+    color: var(--header-text);
+    transition: color 0.5s ease;
+    opacity: 0;
+    animation: fadeSlideDown 1s ease forwards;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--subtitle-text);
+    transition: color 0.5s ease;
+    opacity: 0;
+    animation: fadeSlideDown 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .content {
+    padding: 30px 40px 40px 40px;
+    color: var(--header-text);
+    transition: color 0.5s ease;
+  }
+
+  .thank-you {
+    background: linear-gradient(90deg, var(--header-bg-start) 0%, var(--header-bg-end) 100%);
+    color: var(--header-text);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    transition: background 0.5s ease, color 0.5s ease;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  .funding {
+    background: linear-gradient(
+      90deg,
+      var(--benefit-bg-start),
+      var(--benefit-bg-end),
+      var(--benefit-bg-start)
+    );
+    background-size: 400% 100%;
+    padding: 22px 28px;
+    border-radius: 15px;
+    font-weight: 600;
+    color: var(--funding-color);
+    margin: 18px 0 35px 0;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    animation: fadeSlideUp 1s ease forwards, shimmer 6s infinite linear;
+    animation-delay: 0.9s;
+    opacity: 0;
+    transition: color 0.5s ease, background 0.5s ease;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5;
+    will-change: background-position, transform, opacity;
+  }
+
+  .funding strong {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .section {
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+  }
+
+  .section:nth-of-type(1) { animation-delay: 1.2s; }
+  .section:nth-of-type(2) { animation-delay: 1.4s; }
+  .section:nth-of-type(3) { animation-delay: 1.6s; }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--section-title-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.5s ease;
+  }
+
+  .benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 25px;
+  }
+
+  .benefit {
+    background: linear-gradient(45deg, var(--benefit-bg-start), var(--benefit-bg-end));
+    padding: 18px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--benefit-text);
+    transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateX(-15px);
+    animation: fadeSlideRight 0.5s ease forwards;
+    will-change: transform, opacity;
+    font-size: 15px;
+    line-height: 1.3;
+    box-shadow: 0 3px 10px var(--shadow-light);
+  }
+
+  .benefit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-light);
+  }
+
+  .benefit:nth-child(1) { animation-delay: 1.5s; }
+  .benefit:nth-child(2) { animation-delay: 1.7s; }
+  .benefit:nth-child(3) { animation-delay: 1.9s; }
+  .benefit:nth-child(4) { animation-delay: 2.1s; }
+
+  .list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--header-text);
+    transition: color 0.5s ease;
+  }
+
+  .list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateX(-15px);
+    animation: fadeSlideRight 0.5s ease forwards;
+  }
+
+  .list li:nth-child(1) { animation-delay: 1.7s; }
+  .list li:nth-child(2) { animation-delay: 1.9s; }
+  .list li:nth-child(3) { animation-delay: 2.1s; }
+  .list li:nth-child(4) { animation-delay: 2.3s; }
+
+  .list li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--list-marker);
+    font-weight: 900;
+    font-size: 18px;
+    transition: color 0.5s ease;
+  }
+
+  .industries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+
+  .industry {
+    background: var(--industry-bg);
+    color: var(--industry-text);
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 0.6s ease forwards;
+    will-change: transform, opacity;
+  }
+
+  .industry:nth-child(1) { animation-delay: 1.9s; }
+  .industry:nth-child(2) { animation-delay: 2.1s; }
+  .industry:nth-child(3) { animation-delay: 2.3s; }
+  .industry:nth-child(4) { animation-delay: 2.5s; }
+  .industry:nth-child(5) { animation-delay: 2.7s; }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--cta-bg-start), var(--cta-bg-end));
+    color: var(--cta-text);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px var(--shadow-light);
+    transition: background 0.5s ease, color 0.5s ease;
+    animation: fadeSlideUpCta 1s ease forwards;
+    animation-delay: 2.9s;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .cta-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 18px;
+  }
+
+  .links {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .link {
+    display: inline-block;
+    background: linear-gradient(135deg, #00c9ff, #92fe9d);
+    color: #0c223a;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 6px 15px var(--shadow-strong);
+    transition: all 0.3s ease;
+    animation: pulseOnce 1.5s ease-in-out 3.5s 1;
+    will-change: transform, box-shadow;
+  }
+
+  body.dark .link {
+    background: linear-gradient(135deg, #a90333, #6a0572);
+    color: #f5f5f5;
+    box-shadow: 0 6px 15px var(--shadow-strong);
+  }
+
+  .link:hover,
+  .link:focus {
+    animation: pulseGlow 1s infinite alternate;
+    background: linear-gradient(135deg, var(--link-hover-bg-start), var(--link-hover-bg-end));
+    transform: translateY(-3px);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .confidentiality {
+    background: var(--confidentiality-bg);
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--confidentiality-text);
+    margin-bottom: 25px;
+    line-height: 1.5;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 3.2s;
+  }
+
+  .share-section {
+    background: linear-gradient(90deg, var(--share-bg-start) 0%, var(--share-bg-end) 100%);
+    color: var(--share-text);
+    padding: 22px;
+    border-radius: 18px;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 0 6px 15px var(--shadow-light);
+    transition: background 0.5s ease, color 0.5s ease;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease forwards;
+    animation-delay: 3.4s;
+  }
+
+  .hashtags {
+    text-align: center;
+    margin-top: 22px;
+    color: var(--section-title-color);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    transition: color 0.5s ease;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 3.6s;
+  }
+
+  @media (max-width: 600px) {
+    .benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .poster {
+      margin: 10px;
+      max-width: 95vw;
+    }
+
+    .content {
+      padding: 20px 25px 30px 25px;
+    }
+
+    .header {
+      padding: 25px 15px;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .header::before {
+      font-size: 32px;
+      top: 15px;
+      left: 20px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .link {
+      padding: 12px 22px;
+      font-size: 15px;
+    }
+
+    .links {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .industries {
+      gap: 10px;
+    }
+
+    .industry {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+
+    .section-title {
+      font-size: 18px;
+    }
+
+    .benefit {
+      padding: 15px 12px;
+      font-size: 14px;
+      gap: 10px;
+    }
+  }
+
+  /* Additional breakpoint for very narrow spaces like sidebars */
+  @media (max-width: 400px) {
+    body {
+      padding: 10px;
+    }
+
+    .poster {
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    .content {
+      padding: 15px 20px 25px 20px;
+    }
+
+    .header {
+      padding: 20px 10px;
+    }
+
+    .toggle-theme {
+      top: 8px;
+      right: 8px;
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 15px;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      padding-right: 80px; /* Make room for toggle button */
+    }
+
+    .header::before {
+      font-size: 28px;
+      top: 12px;
+      left: 15px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .benefit {
+      padding: 12px 10px;
+      font-size: 13px;
+      gap: 8px;
+      line-height: 1.2;
+    }
+
+    .industry {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .link {
+      padding: 10px 18px;
+      font-size: 14px;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .cta-title {
+      font-size: 18px;
+    }
+
+    .funding {
+      padding: 16px 20px;
+      font-size: 14px;
+    }
+
+    .thank-you {
+      padding: 16px;
+      font-size: 14px;
+    }
+  }
+
+  /* Toggle button */
+  .toggle-theme {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 2px solid var(--header-text);
+    background: var(--poster-bg);
+    border-radius: 20px;
+    padding: 6px 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    color: var(--header-text);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1s;
+    font-size: 12px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+  }
+
+  .toggle-theme:hover {
+    background: var(--header-text);
+    color: var(--poster-bg);
+    border-color: var(--header-text);
+    transform: scale(1.05);
+  }
+
+  /* Accessibility: Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+  <button class="toggle-theme" aria-label="Toggle dark/light mode">🌙 Dark Mode</button>
+
+  <div class="poster" role="main">
+    <div class="header">
+      <h1>SHAPE the FUTURE of ACCOUNTANCY & FINANCE</h1>
+      <div class="subtitle">Certified by the System. Guided by Integrity.</div>
+    </div>
+
+    <div class="content">
+      <div class="thank-you">
+        🙏 A huge thank you to everyone who has already registered for our groundbreaking research study! Your enthusiasm has been incredible.
+      </div>
+
+      <div class="funding" role="region" aria-live="polite">
+        ⏰ Still time to join! We're seeking UK-based accountants and finance professionals for a cutting-edge tech study funded by AICPA and CIMA.
+      </div>
+
+      <div class="section">
+        <div class="section-title">🎁 What you get:</div>
+        <div class="benefits">
+          <div class="benefit">✅ £25 gift voucher</div>
+          <div class="benefit">✅ Exclusive 2-hour live technology training</div>
+          <div class="benefit">✅ Early access to study findings</div>
+          <div class="benefit">✅ Help shape the future of our profession</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">📋 What's involved:</div>
+        <ul class="list">
+          <li>Just 30 minutes of your time</li>
+          <li>Online participation at your convenience</li>
+          <li>Complete confidentiality (GDPR compliant)</li>
+          <li>University of Essex ethical approval</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title">👥 Your experience matters! Whether you're in:</div>
+        <div class="industries">
+          <div class="industry">🏥 NHS Finance</div>
+          <div class="industry">📊 Management Accounting</div>
+          <div class="industry">🏢 Practice</div>
+          <div class="industry">🏭 Industry</div>
+          <div class="industry">🏛️ Public Sector</div>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <div class="cta-title">📢 Join the research study now!</div>
+        <div class="links">
+          <a href="https://bit.ly/accountantstudy" class="link" tabindex="0">Register Here</a>
+          <a href="https://accountingstudy2.wordpress.com" class="link" tabindex="0">Full Details</a>
+        </div>
+      </div>
+
+      <div class="confidentiality">
+        🔐 Your data will be handled with the utmost confidentiality and used solely for this study.
+      </div>
+
+      <div class="share-section">
+        🙌 Please share this with your professional networks and colleagues! Together, we can shape the future of our profession.
+      </div>
+
+      <div class="hashtags">
+        #accountants #finance #technology #research #futureofaccounting
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle-theme');
+    const body = document.body;
+
+    function setTheme(dark) {
+      if (dark) {
+        body.classList.add('dark');
+        toggleBtn.textContent = '☀️ Light Mode';
+        toggleBtn.setAttribute('aria-label', 'Switch to light mode theme');
+      } else {
+        body.classList.remove('dark');
+        toggleBtn.textContent = '🌙 Dark Mode';
+        toggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+      }
+    }
+
+    // Load saved preference or default to light mode theme
+    const savedTheme = localStorage.getItem('themeDarkMode') === 'true';
+    setTheme(savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+      const isDark = body.classList.toggle('dark');
+      setTheme(isDark);
+      localStorage.setItem('themeDarkMode', isDark);
+    });
+  </script>
+</body>
+</html>
