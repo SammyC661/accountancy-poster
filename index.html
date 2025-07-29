@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SHAPE the FUTURE of ACCOUNTANCY & FINANCE</title>
 <style>
-  /* --- Light Mode Theme (default) --- */
   :root {
     --bg: #f4f7fb;
     --poster-bg: #ffffff;
@@ -35,7 +34,6 @@
     --shadow-strong: rgba(0, 0, 0, 0.1);
   }
 
-  /* --- Dark Original Theme --- */
   body.dark {
     --bg: #121212;
     --poster-bg: #1e1e1e;
@@ -65,145 +63,57 @@
     --shadow-strong: rgba(0, 0, 0, 0.85);
   }
 
-  /* ===== ANIMATION KEYFRAMES ===== */
-  
-  /* Poster fade-in + scale */
   @keyframes posterFadeIn {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 0, 0) scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-    }
+    0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0.95); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
   }
 
-  /* Header & subtitle fade-slide-down */
   @keyframes fadeSlideDown {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, -20px, 0);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+    0% { opacity: 0; transform: translate3d(0, -20px, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
   }
 
-  /* Benefit items staggered fade-slide-right */
   @keyframes fadeSlideRight {
-    0% {
-      opacity: 0;
-      transform: translate3d(-15px, 0, 0);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+    0% { opacity: 0; transform: translate3d(-15px, 0, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
   }
 
-  /* Industries pop-in scale bounce staggered */
   @keyframes popIn {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 0, 0) scale(0.8);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-    }
+    0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0.8); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
   }
 
-  /* Fade slide up for sections */
   @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 20px, 0);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+    0% { opacity: 0; transform: translate3d(0, 20px, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
   }
 
-  /* CTA section fade-slide-up */
   @keyframes fadeSlideUpCta {
-    0% {
-      opacity: 0;
-      transform: translate3d(0, 30px, 0);
-    }
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+    0% { opacity: 0; transform: translate3d(0, 30px, 0); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0); }
   }
 
-  /* Single pulse for CTA buttons */
   @keyframes pulseOnce {
-    0% {
-      transform: translate3d(0, 0, 0) scale(1);
-      box-shadow: 0 0 0 transparent;
-    }
-    50% {
-      transform: translate3d(0, 0, 0) scale(1.05);
-      box-shadow: 0 0 12px var(--shadow-strong);
-    }
-    100% {
-      transform: translate3d(0, 0, 0) scale(1);
-      box-shadow: 0 0 0 transparent;
-    }
+    0% { transform: translate3d(0, 0, 0) scale(1); box-shadow: 0 0 0 transparent; }
+    50% { transform: translate3d(0, 0, 0) scale(1.05); box-shadow: 0 0 12px var(--shadow-strong); }
+    100% { transform: translate3d(0, 0, 0) scale(1); box-shadow: 0 0 0 transparent; }
   }
 
-  /* CTA button pulse glow on hover/focus */
   @keyframes pulseGlow {
-    from {
-      box-shadow: 0 10px 25px var(--shadow-strong);
-    }
-    to {
-      box-shadow: 0 15px 35px var(--shadow-strong);
-    }
+    from { box-shadow: 0 10px 25px var(--shadow-strong); }
+    to { box-shadow: 0 15px 35px var(--shadow-strong); }
   }
 
-  /* NEW ANIMATIONS */
-  
-  /* Shimmer effect for funding box */
   @keyframes shimmer {
-    0% {
-      background-position: -200px 0;
-    }
-    100% {
-      background-position: 200px 0;
-    }
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
   }
 
-  /* Bounce in effect */
-  @keyframes bounceIn {
-    0% {
-      transform: translate3d(0, 0, 0) scale(0.8);
-      opacity: 0;
-    }
-    60% {
-      transform: translate3d(0, 0, 0) scale(1.05);
-      opacity: 1;
-    }
-    100% {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-  }
-
-  /* Fade in */
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
-  /* ===== GENERAL STYLES ===== */
-  
   * {
     margin: 0;
     padding: 0;
@@ -211,23 +121,11 @@
     transition: background-color 0.5s ease, color 0.5s ease;
   }
 
-  /* Performance optimizations for smooth animations */
-  .poster,
-  .benefit,
-  .industry,
-  .link,
-  .section,
-  .thank-you,
-  .funding,
-  .cta-section,
-  .confidentiality,
-  .share-section,
-  .hashtags {
+  .poster, .benefit, .industry, .link, .section, .thank-you, .funding, 
+  .cta-section, .confidentiality, .share-section, .hashtags {
     will-change: transform, opacity;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
   }
 
   body {
@@ -248,7 +146,6 @@
     max-width: 600px;
     width: 100%;
     overflow: hidden;
-    padding: 0;
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
     opacity: 0;
     transform: translate3d(0, 0, 0) scale(0.95);
@@ -320,12 +217,7 @@
   }
 
   .funding {
-    background: linear-gradient(
-      90deg,
-      var(--benefit-bg-start),
-      var(--benefit-bg-end),
-      var(--benefit-bg-start)
-    );
+    background: linear-gradient(90deg, var(--benefit-bg-start), var(--benefit-bg-end), var(--benefit-bg-start));
     background-size: 400% 100%;
     padding: 22px 28px;
     border-radius: 15px;
@@ -391,7 +283,6 @@
     opacity: 0;
     transform: translateX(-15px);
     animation: fadeSlideRight 0.5s ease forwards;
-    will-change: transform, opacity;
     font-size: 15px;
     line-height: 1.3;
     box-shadow: 0 3px 10px var(--shadow-light);
@@ -423,6 +314,8 @@
     opacity: 0;
     transform: translateX(-15px);
     animation: fadeSlideRight 0.5s ease forwards;
+    line-height: 1.4;
+    text-align: left;
   }
 
   .list li:nth-child(1) { animation-delay: 1.7s; }
@@ -462,7 +355,6 @@
     opacity: 0;
     transform: scale(0.8);
     animation: popIn 0.6s ease forwards;
-    will-change: transform, opacity;
   }
 
   .industry:nth-child(1) { animation-delay: 1.9s; }
@@ -483,7 +375,6 @@
     animation: fadeSlideUpCta 1s ease forwards;
     animation-delay: 2.9s;
     opacity: 0;
-    will-change: transform, opacity;
   }
 
   .cta-title {
@@ -512,7 +403,6 @@
     box-shadow: 0 6px 15px var(--shadow-strong);
     transition: all 0.3s ease;
     animation: pulseOnce 1.5s ease-in-out 3.5s 1;
-    will-change: transform, box-shadow;
   }
 
   body.dark .link {
@@ -521,8 +411,7 @@
     box-shadow: 0 6px 15px var(--shadow-strong);
   }
 
-  .link:hover,
-  .link:focus {
+  .link:hover, .link:focus {
     animation: pulseGlow 1s infinite alternate;
     background: linear-gradient(135deg, var(--link-hover-bg-start), var(--link-hover-bg-end));
     transform: translateY(-3px);
@@ -572,153 +461,6 @@
     animation-delay: 3.6s;
   }
 
-  @media (max-width: 600px) {
-    .benefits {
-      grid-template-columns: 1fr;
-    }
-
-    .poster {
-      margin: 10px;
-      max-width: 95vw;
-    }
-
-    .content {
-      padding: 20px 25px 30px 25px;
-    }
-
-    .header {
-      padding: 25px 15px;
-    }
-
-    .header h1 {
-      font-size: 22px;
-      line-height: 1.2;
-    }
-
-    .header::before {
-      font-size: 32px;
-      top: 15px;
-      left: 20px;
-    }
-
-    .subtitle {
-      font-size: 14px;
-    }
-
-    .link {
-      padding: 12px 22px;
-      font-size: 15px;
-    }
-
-    .links {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .industries {
-      gap: 10px;
-    }
-
-    .industry {
-      padding: 8px 16px;
-      font-size: 13px;
-    }
-
-    .section-title {
-      font-size: 18px;
-    }
-
-    .benefit {
-      padding: 15px 12px;
-      font-size: 14px;
-      gap: 10px;
-    }
-  }
-
-  /* Additional breakpoint for very narrow spaces like sidebars */
-  @media (max-width: 400px) {
-    body {
-      padding: 10px;
-    }
-
-    .poster {
-      max-width: 100%;
-      border-radius: 15px;
-    }
-
-    .content {
-      padding: 15px 20px 25px 20px;
-    }
-
-    .header {
-      padding: 20px 10px;
-    }
-
-    .toggle-theme {
-      top: 8px;
-      right: 8px;
-      padding: 4px 8px;
-      font-size: 11px;
-      border-radius: 15px;
-    }
-
-    .header h1 {
-      font-size: 18px;
-      margin-bottom: 8px;
-      padding-right: 80px; /* Make room for toggle button */
-    }
-
-    .header::before {
-      font-size: 28px;
-      top: 12px;
-      left: 15px;
-    }
-
-    .subtitle {
-      font-size: 13px;
-    }
-
-    .section-title {
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-
-    .benefit {
-      padding: 12px 10px;
-      font-size: 13px;
-      gap: 8px;
-      line-height: 1.2;
-    }
-
-    .industry {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
-
-    .link {
-      padding: 10px 18px;
-      font-size: 14px;
-      width: 100%;
-      max-width: 200px;
-    }
-
-    .cta-title {
-      font-size: 18px;
-    }
-
-    .funding {
-      padding: 16px 20px;
-      font-size: 14px;
-    }
-
-    .thank-you {
-      padding: 16px;
-      font-size: 14px;
-    }
-  }
-
-  /* Toggle button */
   .toggle-theme {
     position: absolute;
     top: 10px;
@@ -746,11 +488,58 @@
     transform: scale(1.05);
   }
 
-  /* Accessibility: Respect reduced motion preferences */
+  @media (max-width: 600px) {
+    .benefits { grid-template-columns: 1fr; }
+    .poster { margin: 10px; max-width: 95vw; }
+    .content { padding: 20px 25px 30px 25px; }
+    .header { padding: 25px 15px; }
+    .header h1 {
+      font-size: 22px;
+      line-height: 1.2;
+      word-wrap: break-word;
+      hyphens: auto;
+      padding-right: 15px;
+    }
+    .header::before { font-size: 32px; top: 12px; left: 20px; }
+    .subtitle { font-size: 14px; }
+    .link { padding: 12px 22px; font-size: 15px; }
+    .links { flex-direction: column; align-items: center; gap: 15px; }
+    .industries { gap: 10px; }
+    .industry { padding: 8px 16px; font-size: 13px; }
+    .section-title { font-size: 18px; }
+    .benefit { padding: 15px 12px; font-size: 14px; gap: 10px; }
+  }
+
+  @media (max-width: 400px) {
+    body { padding: 10px; }
+    .poster { max-width: 100%; border-radius: 15px; }
+    .content { padding: 15px 20px 25px 20px; }
+    .header { padding: 20px 10px; }
+    .toggle-theme { top: 8px; right: 8px; padding: 4px 8px; font-size: 11px; border-radius: 15px; }
+    .header h1 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      padding-right: 90px;
+      word-wrap: break-word;
+      hyphens: auto;
+      line-height: 1.3;
+    }
+    .header::before { font-size: 28px; top: 12px; left: 15px; }
+    .subtitle { font-size: 13px; }
+    .section-title { font-size: 16px; margin-bottom: 12px; }
+    .benefit { padding: 12px 10px; font-size: 13px; gap: 8px; line-height: 1.2; }
+    .industry { padding: 6px 12px; font-size: 12px; }
+    .link { padding: 10px 18px; font-size: 14px; width: 100%; max-width: 200px; }
+    .cta-title { font-size: 18px; }
+    .funding { padding: 16px 20px; font-size: 14px; }
+    .thank-you { padding: 16px; font-size: 14px; }
+    .list { text-align: left; }
+    .list li { text-align: left; padding-left: 25px; line-height: 1.5; }
+    .list li::before { left: 0; top: 2px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
@@ -845,7 +634,6 @@
       }
     }
 
-    // Load saved preference or default to light mode theme
     const savedTheme = localStorage.getItem('themeDarkMode') === 'true';
     setTheme(savedTheme);
 
