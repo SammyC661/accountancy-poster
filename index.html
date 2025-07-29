@@ -69,9 +69,13 @@
   
   /* Poster fade-in + scale */
   @keyframes posterFadeIn {
-    to {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.95);
+    }
+    100% {
       opacity: 1;
-      transform: scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
     }
   }
 
@@ -79,27 +83,75 @@
   @keyframes fadeSlideDown {
     0% {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translate3d(0, -20px, 0);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
   /* Benefit items staggered fade-slide-right */
   @keyframes fadeSlideRight {
-    to {
+    0% {
+      opacity: 0;
+      transform: translate3d(-15px, 0, 0);
+    }
+    100% {
       opacity: 1;
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
   /* Industries pop-in scale bounce staggered */
   @keyframes popIn {
-    to {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.8);
+    }
+    100% {
       opacity: 1;
-      transform: scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  /* Fade slide up for sections */
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* CTA section fade-slide-up */
+  @keyframes fadeSlideUpCta {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Single pulse for CTA buttons */
+  @keyframes pulseOnce {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+      box-shadow: 0 0 0 transparent;
+    }
+    50% {
+      transform: translate3d(0, 0, 0) scale(1.05);
+      box-shadow: 0 0 12px var(--shadow-strong);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      box-shadow: 0 0 0 transparent;
     }
   }
 
@@ -110,18 +162,6 @@
     }
     to {
       box-shadow: 0 15px 35px var(--shadow-strong);
-    }
-  }
-
-  /* Fade slide up for sections */
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
     }
   }
 
@@ -137,46 +177,18 @@
     }
   }
 
-  /* Single pulse for CTA buttons */
-  @keyframes pulseOnce {
-    0% {
-      transform: scale(1);
-      box-shadow: 0 0 0 transparent;
-    }
-    50% {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px var(--shadow-strong);
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 0 transparent;
-    }
-  }
-
-  /* CTA section fade-slide-up */
-  @keyframes fadeSlideUpCta {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   /* Bounce in effect */
   @keyframes bounceIn {
     0% {
-      transform: scale(0.8);
+      transform: translate3d(0, 0, 0) scale(0.8);
       opacity: 0;
     }
     60% {
-      transform: scale(1.05);
+      transform: translate3d(0, 0, 0) scale(1.05);
       opacity: 1;
     }
     100% {
-      transform: scale(1);
+      transform: translate3d(0, 0, 0) scale(1);
     }
   }
 
@@ -197,6 +209,25 @@
     padding: 0;
     box-sizing: border-box;
     transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  /* Performance optimizations for smooth animations */
+  .poster,
+  .benefit,
+  .industry,
+  .link,
+  .section,
+  .thank-you,
+  .funding,
+  .cta-section,
+  .confidentiality,
+  .share-section,
+  .hashtags {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
   }
 
   body {
@@ -220,8 +251,8 @@
     padding: 0;
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
     opacity: 0;
-    transform: scale(0.95);
-    animation: posterFadeIn 0.8s ease forwards;
+    transform: translate3d(0, 0, 0) scale(0.95);
+    animation: posterFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     position: relative;
   }
 
